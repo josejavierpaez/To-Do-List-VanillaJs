@@ -1,6 +1,6 @@
 # To-Do-List-VanillaJs
 
-This is **to-do-List** with vanilla JS in this example that i have made, am do a simulation about exercise list for the gym where am implement a **CRUD**  operations using Local Storage as Data Base 
+This is **to-do-List** with vanilla JS in this example that i have made, i am do a simulation about exercise list for the gym where i am implement a **CRUD**  operations using Local Storage as Data Base 
 
 # Application Link
 if you want look the app press here [App Link](https://josejavierpaez.github.io/To-Do-List-VanillaJs/App/index.html)
