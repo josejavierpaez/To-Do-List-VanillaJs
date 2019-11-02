@@ -29,7 +29,11 @@ const showActivitiesDB = () => {
     arrayActivities.forEach((currentActivity) => {
       alertClass =
         currentActivity.status === true ? "alert-success" : "alert-danger";
-      activityList.innerHTML += ` <div class="alert ${alertClass}" role="alert"><i class="material-icons float-left mr-2">accessibility</i><b>${currentActivity.activity}</b> - ${currentActivity.status}<span class="float-right"><i class="material-icons">done</i><i class="material-icons">delete</i></span></div>`;
+      activityList.innerHTML += ` <div class="alert ${alertClass}" role="alert"><i class="material-icons float-left mr-2">accessibility</i><b>${
+        currentActivity.activity
+      }</b> - ${
+        currentActivity.status ? "Finished" : "Unfinished"
+      }<span class="float-right"><i class="material-icons">done</i><i class="material-icons">delete</i></span></div>`;
     });
   }
 };
@@ -37,7 +41,7 @@ const showActivitiesDB = () => {
 const DeleteDB = (activity) => {
   let indexArray;
 
-  indexArray = arrayActivities.findIndex((CurrentElement) => {
+  indexArray = arrayActivities.findIndex((CurrentElement, index) => {
     return CurrentElement.activity === activity;
   });
 
@@ -49,7 +53,7 @@ const EditDB = (activity) => {
   let indexArray = arrayActivities.findIndex(
     (CurrentElement) => CurrentElement.activity === activity
   );
-  arrayActivities[indexArray].status = true;
+  arrayActivities[indexArray].status = !arrayActivities[indexArray].status;
   SaveDB();
 };
 
