@@ -57,13 +57,31 @@ const EditDB = (activity) => {
   SaveDB();
 };
 
+const ActivityValidation = (activity) => {
+  if (activity.length == 0) return false;
+  let haveText = false;
+  for (let i = 0; i < activity.length; i++) {
+    if (activity.charAt(i) != ' ') {
+      haveText = true;
+      break;
+    }
+  }
+
+  return haveText;
+}
+
+
 //!Events
 formActivity.addEventListener("submit", (event) => {
   event.preventDefault();
   let txtActivity = document.querySelector("#txtActivity").value;
   formActivity.reset();
-  createItem(txtActivity);
-  SaveDB();
+  if (ActivityValidation(txtActivity)) {
+    createItem(txtActivity);
+    SaveDB();
+  } else {
+    alert("Field empty, insert some text");
+  }
 });
 
 document.addEventListener("DOMContentLoaded", showActivitiesDB);
